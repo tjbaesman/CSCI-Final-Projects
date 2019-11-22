@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tj/Mines Files/CSCI 261/Blackjack/Hand.cpp
+Hand.h
+/home/tj/Mines Files/CSCI 261/Blackjack/Hand.h
+cstdlib
+-
+
+/home/tj/Mines Files/CSCI 261/Blackjack/Hand.h
+vector
+-
+string
+-
+iostream
+-
+fstream
+-
+
