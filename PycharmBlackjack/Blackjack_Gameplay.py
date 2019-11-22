@@ -31,7 +31,8 @@ def choices(player_hand, dealer_hand, deck):
 
     print()
     print("Your hand is:")
-    player_hand.output_cards()
+    player_hand.display_hand()
+
     if player_hand.ace_present:
         print("Its values are %d and %d" % (player_hand.value, player_hand.value - 10))
     else:
@@ -51,8 +52,6 @@ def choices(player_hand, dealer_hand, deck):
 
     print("The dealer has:")
     dealer_hand.display_hand()
-    print("The dealer's visible hand is ")
-    dealer_hand.output_card(dealer_hand.cards[1])
     print()
 
     print("You can: (What to Enter)\nHit(H)")
@@ -70,9 +69,10 @@ def choices(player_hand, dealer_hand, deck):
             break
         elif choice == "S" and player_hand.can_split_hand():
             player_hand.split_hand()
+            split_choices(player_hand, dealer_hand, deck)
             break
         elif choice == "D" and player_hand.can_double_down():
-            player_hand.double_down()
+            player_hand.double_down(deck)
             return
         elif choice == "N":
             return
@@ -83,6 +83,57 @@ def choices(player_hand, dealer_hand, deck):
 def dealer_choices(dealer_hand, deck):
     while dealer_hand.value < 17:
         dealer_hand.hit(deck)
+
+
+def split_choices(player_hand, dealer_hand, deck):
+    choice_unmade = True
+
+    print()
+    print("Your hand is:")
+    player_hand.display_hand()
+
+    if player_hand.ace_present_L:
+        print("The left hand's values are %d and %d" % (player_hand.value_L, player_hand.value_L - 10))
+    else:
+        print("The left hand's value is: %d" % player_hand.value_L)
+    print()
+
+    if player_hand.ace_present_R:
+        print("The right hand's values are %d and %d" % (player_hand.value_R, player_hand.value_R - 10))
+    else:
+        print("The right hand's value is: %d" % player_hand.value_R)
+    print()
+
+    if player_hand.is_bust():
+        print("You Bust! Better luck next time.")
+        if player_hand.hand_side == "L":
+            player_hand.hand_side = "R"
+            split_choices(player_hand, dealer_hand, deck)
+        else:
+            player_hand.hand_side = "L"
+            return
+
+    print("The dealer has:")
+    dealer_hand.display_hand()
+    print()
+
+    print("You can: (What to Enter)\nHit(H)\nStand(N)")
+
+    while choice_unmade:
+        choice = input()
+        if choice == "H":
+            player_hand.hit(deck)
+            split_choices(player_hand, dealer_hand, deck)
+            break
+        elif choice == "N":
+            if player_hand.hand_side == "L":
+                player_hand.hand_side = "R"
+                split_choices(player_hand, dealer_hand, deck)
+            else:
+                player_hand.hand_side = "L"
+            return
+        else:
+            print("Invalid choice, try again")
 
 
 def end_game(player_hand):

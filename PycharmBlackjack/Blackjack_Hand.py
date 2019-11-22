@@ -2,17 +2,22 @@
 # CSCI 101 - Section D
 # Blackjack - Hand Class
 import random
-
+from Blackjack_Gameplay import *
 
 class Hand:
     def __init__(self, dealer_status):
         self.ace_present = False
+        self.ace_present_L = False
+        self.ace_present_R = False
         self.hand_split = False
+        self.hand_side = "L"
         self.is_dealer = dealer_status
         self.cards = []
         self.split_L = []
         self.split_R = []
         self.value = 0
+        self.value_L = 0
+        self.value_R = 0
         self.funds = 500
         self.current_bet = 0
 
@@ -22,52 +27,123 @@ class Hand:
             card = random.randint(1, 52)
             if deck[card - 1] > 0:
                 deck[card - 1] -= 1
-                self.cards.append(card)
-                if not self.is_dealer:
-                    self.display_hand()
+                if not self.hand_split:
+                    self.cards.append(card)
+                elif self.hand_side == "L":
+                    self.split_L.append(card)
+                else:
+                    self.split_R.append(card)
                 self.set_value()
                 return
 
     def rand_hand(self, deck):
         self.cards = []
+        self.split_L = []
+        self.split_R = []
+        self.hit(deck)
+        self.hit(deck)
         if not self.is_dealer:
             print()
             print("Your Deal:")
-        self.hit(deck)
-        self.hit(deck)
+            self.display_hand()
 
     def set_value(self):
-        temp_value = 0
-        for i in self.cards:
-            if i % 13 == 1:
-                if self.ace_present and (temp_value + 11 > 21):
-                    temp_value += 1
+        if not self.hand_split:
+            temp_value = 0
+            for i in self.cards:
+                if i % 13 == 1:
+                    if self.ace_present and (temp_value + 11 > 21):
+                        temp_value += 1
+                    else:
+                        temp_value += 11
+                        self.ace_present = True
+                elif i % 13 == 2:
+                    temp_value += 2
+                elif i % 13 == 3:
+                    temp_value += 3
+                elif i % 13 == 4:
+                    temp_value += 4
+                elif i % 13 == 5:
+                    temp_value += 5
+                elif i % 13 == 6:
+                    temp_value += 6
+                elif i % 13 == 7:
+                    temp_value += 7
+                elif i % 13 == 8:
+                    temp_value += 8
+                elif i % 13 == 9:
+                    temp_value += 9
                 else:
-                    temp_value += 11
-                    self.ace_present = True
-            elif i % 13 == 2:
-                temp_value += 2
-            elif i % 13 == 3:
-                temp_value += 3
-            elif i % 13 == 4:
-                temp_value += 4
-            elif i % 13 == 5:
-                temp_value += 5
-            elif i % 13 == 6:
-                temp_value += 6
-            elif i % 13 == 7:
-                temp_value += 7
-            elif i % 13 == 8:
-                temp_value += 8
-            elif i % 13 == 9:
-                temp_value += 9
-            else:
-                temp_value += 10
-            if temp_value > 21 and self.ace_present:
-                temp_value -= 10
-                self.ace_present = False
-        self.ace_present = False
-        self.value = temp_value
+                    temp_value += 10
+                if temp_value > 21 and self.ace_present:
+                    temp_value -= 10
+                    self.ace_present = False
+            self.ace_present = False
+            self.value = temp_value
+        else:
+            temp_value = 0
+            for i in self.split_L:
+                if i % 13 == 1:
+                    if self.ace_present_L and (temp_value + 11 > 21):
+                        temp_value += 1
+                    else:
+                        temp_value += 11
+                        self.ace_present_L = True
+                elif i % 13 == 2:
+                    temp_value += 2
+                elif i % 13 == 3:
+                    temp_value += 3
+                elif i % 13 == 4:
+                    temp_value += 4
+                elif i % 13 == 5:
+                    temp_value += 5
+                elif i % 13 == 6:
+                    temp_value += 6
+                elif i % 13 == 7:
+                    temp_value += 7
+                elif i % 13 == 8:
+                    temp_value += 8
+                elif i % 13 == 9:
+                    temp_value += 9
+                else:
+                    temp_value += 10
+                if temp_value > 21 and self.ace_present_L:
+                    temp_value -= 10
+                    self.ace_present_L = False
+            self.ace_present_L = False
+            self.value_L = temp_value
+
+            temp_value = 0
+            for i in self.split_R:
+                if i % 13 == 1:
+                    if self.ace_present_R and (temp_value + 11 > 21):
+                        temp_value += 1
+                    else:
+                        temp_value += 11
+                        self.ace_present_R = True
+                elif i % 13 == 2:
+                    temp_value += 2
+                elif i % 13 == 3:
+                    temp_value += 3
+                elif i % 13 == 4:
+                    temp_value += 4
+                elif i % 13 == 5:
+                    temp_value += 5
+                elif i % 13 == 6:
+                    temp_value += 6
+                elif i % 13 == 7:
+                    temp_value += 7
+                elif i % 13 == 8:
+                    temp_value += 8
+                elif i % 13 == 9:
+                    temp_value += 9
+                else:
+                    temp_value += 10
+                if temp_value > 21 and self.ace_present_R:
+                    temp_value -= 10
+                    self.ace_present_R = False
+            self.ace_present_R = False
+            self.value_R = temp_value
 
     def display_hand(self):
 
@@ -99,22 +175,58 @@ class Hand:
         for i in range(7):
             blank_card_line = read_blank_card.readline()[:-1]
             back_card_line = read_back_card.readline()[:-1]
-            for j in range(len(self.cards)):
-                if self.is_dealer and j == 0:
-                    print(back_card_line, end=' ')
-                else:
+
+            if not self.hand_split:
+                for j in range(len(self.cards)):
+                    if self.is_dealer and j == 0:
+                        print(back_card_line, end=' ')
+                    else:
+                        if i == 1:
+                            if len(values[self.cards[j] % 13]) == 1:
+                                print(blank_card_line.format(values[self.cards[j] % 13], " "), end=' ')
+                            else:
+                                print(blank_card_line.format(values[self.cards[j] % 13], ""), end=' ')
+                        elif i == 3:
+                            print(blank_card_line.format(symbols[(self.cards[j] - 1) // 13]), end=' ')
+                        elif i == 5:
+                            if len(values[self.cards[j] % 13]) == 1:
+                                print(blank_card_line.format(" ", values[self.cards[j] % 13]), end=' ')
+                            else:
+                                print(blank_card_line.format(values[self.cards[j] % 13], ""), end=' ')
+                        else:
+                            print(blank_card_line.format(), end=' ')
+            else:
+                for j in range(len(self.split_L)):
                     if i == 1:
-                        if len(values[self.cards[j] % 13]) == 1:
-                            print(blank_card_line.format(values[self.cards[j] % 13], " "), end=' ')
+                        if len(values[self.split_L[j] % 13]) == 1:
+                            print(blank_card_line.format(values[self.split_L[j] % 13], " "), end=' ')
                         else:
-                            print(blank_card_line.format(values[self.cards[j] % 13], ""), end=' ')
+                            print(blank_card_line.format(values[self.split_L[j] % 13], ""), end=' ')
                     elif i == 3:
-                        print(blank_card_line.format(symbols[(self.cards[j] - 1) // 13]), end=' ')
+                        print(blank_card_line.format(symbols[(self.split_L[j] - 1) // 13]), end=' ')
                     elif i == 5:
-                        if len(values[self.cards[j] % 13]) == 1:
-                            print(blank_card_line.format(" ", values[self.cards[j] % 13]), end=' ')
+                        if len(values[self.split_L[j] % 13]) == 1:
+                            print(blank_card_line.format(" ", values[self.split_L[j] % 13]), end=' ')
                         else:
-                            print(blank_card_line.format(values[self.cards[j] % 13], ""), end=' ')
+                            print(blank_card_line.format(values[self.split_L[j] % 13], ""), end=' ')
+                    else:
+                        print(blank_card_line.format(), end=' ')
+
+                print(end='\t\t')
+
+                for j in range(len(self.split_R)):
+                    if i == 1:
+                        if len(values[self.split_R[j] % 13]) == 1:
+                            print(blank_card_line.format(values[self.split_R[j] % 13], " "), end=' ')
+                        else:
+                            print(blank_card_line.format(values[self.split_R[j] % 13], ""), end=' ')
+                    elif i == 3:
+                        print(blank_card_line.format(symbols[(self.split_R[j] - 1) // 13]), end=' ')
+                    elif i == 5:
+                        if len(values[self.split_R[j] % 13]) == 1:
+                            print(blank_card_line.format(" ", values[self.split_R[j] % 13]), end=' ')
+                        else:
+                            print(blank_card_line.format(values[self.split_R[j] % 13], ""), end=' ')
                     else:
                         print(blank_card_line.format(), end=' ')
             print()
@@ -124,24 +236,42 @@ class Hand:
         return self.value == 21 and len(self.cards) == 2
 
     def is_bust(self):
-        return self.value > 21
+        if not self.hand_split:
+            return self.value > 21
+        elif self.hand_side == "L":
+            return self.value_L > 21
+        elif self.hand_side == "R":
+            return self.value_R > 21
 
     def can_split_hand(self):
-        return self.cards[0] % 13 == self.cards[1] % 13 and len(self.cards) == 2
+        return self.cards[0] % 13 == self.cards[1] % 13 and len(self.cards) == 2 and self.current_bet * 2 <= self.funds
 
-    def split_hand(self, deck):
-        print("FIX splitHand")
+    def split_hand(self):
+        self.hand_split = True
+        self.split_L.append(self.cards[0])
+        self.split_R.append(self.cards[1])
+        self.cards = []
+        self.set_value()
 
     def can_double_down(self):
-        return 8 < self.value < 12 and len(self.cards) == 2
+        return 8 < self.value < 12 and len(self.cards) == 2 and self.current_bet * 2 <= self.funds
 
     def double_down(self, deck):
         self.current_bet *= 2
         self.hit(deck)
+        self.display_hand()
 
     def output_cards(self):
-        for i in self.cards:
-            self.output_card(i)
+        if not self.hand_split:
+            for i in self.cards:
+                self.output_card(i)
+        else:
+            print("Left:")
+            for i in self.split_L:
+                self.output_card(i)
+            print("Right:")
+            for i in self.split_R:
+                self.output_card(i)
 
     def output_card(self, idx):
         print("The ", end='')
@@ -256,7 +386,9 @@ class Hand:
         dealer_hand.display_hand()
         dealer_hand.output_cards()
         print("Its value is", dealer_hand.value, end="\n\n")
-        if self.is_bust():
+        if self.is_blackjack():
+            self.funds += self.current_bet*2
+        elif self.is_bust():
             self.funds -= self.current_bet
         elif dealer_hand.is_bust():
             print("Dealer busts! Paying out.")
