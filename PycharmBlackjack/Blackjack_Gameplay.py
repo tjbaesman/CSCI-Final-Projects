@@ -105,11 +105,12 @@ def split_choices(player_hand, dealer_hand, deck):
     print()
 
     if player_hand.is_bust():
-        print("You Bust! Better luck next time.")
         if player_hand.hand_side == "L":
+            print("Your left hand Busts! Better luck next time.")
             player_hand.hand_side = "R"
             split_choices(player_hand, dealer_hand, deck)
         else:
+            print("Your right hand Busts! Better luck next time.")
             player_hand.hand_side = "L"
             return
 

@@ -4,7 +4,9 @@
 import random
 from Blackjack_Gameplay import *
 
+
 class Hand:
+
     def __init__(self, dealer_status):
         self.ace_present = False
         self.ace_present_L = False
@@ -388,6 +390,26 @@ class Hand:
         print("Its value is", dealer_hand.value, end="\n\n")
         if self.is_blackjack():
             self.funds += self.current_bet*2
+        elif self.hand_split:
+            bet_mod = 0
+            if self.is_bust() or self.value_L < dealer_hand.value:
+                print("Your left hand loses! Paying out.")
+                bet_mod -= 1
+            elif self.value_L == dealer_hand.value:
+                print("Your left hand stands off! You keep your coin.")
+            else:
+                print("Your left hand wins! Paying out.")
+                bet_mod += 1
+            self.hand_side = "R"
+            if self.is_bust() or self.value_R:
+                print("Your right hand loses! Paying out.")
+                bet_mod -= 1
+            elif self.value_R == dealer_hand.value:
+                print("Your right hand stands off! You keep your coin.")
+            else:
+                print("Your right hand wins! Paying out.")
+                bet_mod += 1
+            self.hand_side = "L"
         elif self.is_bust():
             self.funds -= self.current_bet
         elif dealer_hand.is_bust():
@@ -401,3 +423,4 @@ class Hand:
         else:
             print("You lose! Collecting bets.")
             self.funds -= self.current_bet
+        self.hand_split = False

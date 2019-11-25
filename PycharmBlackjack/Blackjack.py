@@ -1,4 +1,4 @@
-# TJ Baemsan
+# TJ Baesman
 # CSCI 101 - Section D
 # Explore Project - Blackjack
 

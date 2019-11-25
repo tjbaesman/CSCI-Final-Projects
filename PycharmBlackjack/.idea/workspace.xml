@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dcf8603-8fcc-4ec6-8f6e-414ff3e3ea74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blackjack.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blackjack.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blackjack_Gameplay.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blackjack_Gameplay.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blackjack_Hand.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blackjack_Hand.py" afterDir="false" />
     </list>
@@ -77,6 +77,14 @@
       <option name="presentableId" value="Default" />
       <updated>1574288621929</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added split functionality to python code">
+      <created>1574455026288</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574455026288</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,10 +92,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added split functionality to python code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added split functionality to python code" />
   </component>
 </project>
