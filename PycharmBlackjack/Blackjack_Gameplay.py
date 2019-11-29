@@ -13,14 +13,18 @@ def deal_new_hands(player_hand, dealer_hand, deck):
 def make_bets(player_hand):
     bet_choice_unmade = True
     print("You have $%d" % player_hand.funds)
-    temp_bet = int(input("How much would you like to bet? (Whole numbers only) "))
     while bet_choice_unmade:
+        temp_bet = input("How much would you like to bet? (Whole numbers only) ")
+        if temp_bet.isdigit():
+            temp_bet = int(temp_bet)
+        else:
+            print("Invalid input, try again")
+            continue
         if temp_bet <= 0:
             print("Invalid input, try again")
             continue
         if temp_bet > player_hand.funds:
             print("Bet greater than available funds. Enter a bet that can be paid.")
-            temp_bet = int(input("How much would you like to bet? (Whole numbers only) "))
             continue
         bet_choice_unmade = False
     player_hand.current_bet = temp_bet
@@ -54,7 +58,8 @@ def choices(player_hand, dealer_hand, deck):
     dealer_hand.display_hand()
     print()
 
-    print("You can: (What to Enter)\nHit(H)")
+    print("What would you like to do with your hand?")
+    print("Your options: (What to Enter)\nHit(H)")
     if player_hand.can_split_hand():
         print("Split(S)")
     if player_hand.can_double_down():
@@ -118,7 +123,12 @@ def split_choices(player_hand, dealer_hand, deck):
     dealer_hand.display_hand()
     print()
 
-    print("You can: (What to Enter)\nHit(H)\nStand(N)")
+    if player_hand.hand_side == "L":
+        print("What would you like to do with your left hand?")
+    else:
+        print("What would you like to do with your right hand?")
+
+    print("Your options: (What to Enter)\nHit(H)\nStand(N)")
 
     while choice_unmade:
         choice = input()
@@ -138,13 +148,16 @@ def split_choices(player_hand, dealer_hand, deck):
 
 
 def end_game(player_hand):
+    if player_hand.funds <= 0:
+        print("You're out!")
+        return False
+
     choice_unmade = True
     while choice_unmade:
         end_char = input("Would you like to play another hand? (Y/N)")
         if end_char == "Y":
             return True
-        elif end_char == "N" or player_hand.funds <= 0:
-            print("Thanks for playing")
+        elif end_char == "N":
             return False
         else:
             print("Invalid input, try again")

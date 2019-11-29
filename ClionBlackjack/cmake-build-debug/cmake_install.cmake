@@ -1,4 +1,4 @@
-# Install script for directory: /home/tj/Mines Files/CSCI 261/Blackjack
+# Install script for directory: /home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

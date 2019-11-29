@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tj/Mines Files/CSCI 261/Blackjack/Gameplay.cpp" "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/Gameplay.cpp.o"
-  "/home/tj/Mines Files/CSCI 261/Blackjack/Hand.cpp" "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/Hand.cpp.o"
-  "/home/tj/Mines Files/CSCI 261/Blackjack/main.cpp" "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/main.cpp.o"
+  "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Gameplay.cpp" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/Gameplay.cpp.o"
+  "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Hand.cpp" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/Hand.cpp.o"
+  "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/main.cpp" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

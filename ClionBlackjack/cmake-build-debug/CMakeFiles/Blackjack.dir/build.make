@@ -43,10 +43,10 @@ RM = /home/tj/Documents/clion-2019.2.1/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/tj/Mines Files/CSCI 261/Blackjack"
+CMAKE_SOURCE_DIR = "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Blackjack.dir/depend.make
@@ -59,42 +59,42 @@ include CMakeFiles/Blackjack.dir/flags.make
 
 CMakeFiles/Blackjack.dir/main.cpp.o: CMakeFiles/Blackjack.dir/flags.make
 CMakeFiles/Blackjack.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Blackjack.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/main.cpp.o -c "/home/tj/Mines Files/CSCI 261/Blackjack/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Blackjack.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/main.cpp.o -c "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/main.cpp"
 
 CMakeFiles/Blackjack.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Blackjack.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tj/Mines Files/CSCI 261/Blackjack/main.cpp" > CMakeFiles/Blackjack.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/main.cpp" > CMakeFiles/Blackjack.dir/main.cpp.i
 
 CMakeFiles/Blackjack.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Blackjack.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tj/Mines Files/CSCI 261/Blackjack/main.cpp" -o CMakeFiles/Blackjack.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/main.cpp" -o CMakeFiles/Blackjack.dir/main.cpp.s
 
 CMakeFiles/Blackjack.dir/Hand.cpp.o: CMakeFiles/Blackjack.dir/flags.make
 CMakeFiles/Blackjack.dir/Hand.cpp.o: ../Hand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Blackjack.dir/Hand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/Hand.cpp.o -c "/home/tj/Mines Files/CSCI 261/Blackjack/Hand.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Blackjack.dir/Hand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/Hand.cpp.o -c "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Hand.cpp"
 
 CMakeFiles/Blackjack.dir/Hand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Blackjack.dir/Hand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tj/Mines Files/CSCI 261/Blackjack/Hand.cpp" > CMakeFiles/Blackjack.dir/Hand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Hand.cpp" > CMakeFiles/Blackjack.dir/Hand.cpp.i
 
 CMakeFiles/Blackjack.dir/Hand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Blackjack.dir/Hand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tj/Mines Files/CSCI 261/Blackjack/Hand.cpp" -o CMakeFiles/Blackjack.dir/Hand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Hand.cpp" -o CMakeFiles/Blackjack.dir/Hand.cpp.s
 
 CMakeFiles/Blackjack.dir/Gameplay.cpp.o: CMakeFiles/Blackjack.dir/flags.make
 CMakeFiles/Blackjack.dir/Gameplay.cpp.o: ../Gameplay.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Blackjack.dir/Gameplay.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/Gameplay.cpp.o -c "/home/tj/Mines Files/CSCI 261/Blackjack/Gameplay.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Blackjack.dir/Gameplay.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Blackjack.dir/Gameplay.cpp.o -c "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Gameplay.cpp"
 
 CMakeFiles/Blackjack.dir/Gameplay.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Blackjack.dir/Gameplay.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tj/Mines Files/CSCI 261/Blackjack/Gameplay.cpp" > CMakeFiles/Blackjack.dir/Gameplay.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Gameplay.cpp" > CMakeFiles/Blackjack.dir/Gameplay.cpp.i
 
 CMakeFiles/Blackjack.dir/Gameplay.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Blackjack.dir/Gameplay.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tj/Mines Files/CSCI 261/Blackjack/Gameplay.cpp" -o CMakeFiles/Blackjack.dir/Gameplay.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/Gameplay.cpp" -o CMakeFiles/Blackjack.dir/Gameplay.cpp.s
 
 # Object files for target Blackjack
 Blackjack_OBJECTS = \
@@ -110,7 +110,7 @@ Blackjack: CMakeFiles/Blackjack.dir/Hand.cpp.o
 Blackjack: CMakeFiles/Blackjack.dir/Gameplay.cpp.o
 Blackjack: CMakeFiles/Blackjack.dir/build.make
 Blackjack: CMakeFiles/Blackjack.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Blackjack"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Blackjack"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Blackjack.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/Blackjack.dir/clean:
 .PHONY : CMakeFiles/Blackjack.dir/clean
 
 CMakeFiles/Blackjack.dir/depend:
-	cd "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/tj/Mines Files/CSCI 261/Blackjack" "/home/tj/Mines Files/CSCI 261/Blackjack" "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug" "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug" "/home/tj/Mines Files/CSCI 261/Blackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug" "/home/tj/Mines Files/CSCI-Final-Projects/ClionBlackjack/cmake-build-debug/CMakeFiles/Blackjack.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Blackjack.dir/depend
 

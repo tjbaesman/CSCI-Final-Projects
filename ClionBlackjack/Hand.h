@@ -41,8 +41,7 @@ private:
     bool handSplit;
     bool isDealer;
     vector<int> cards;
-    vector<int> split_L;
-    vector<int> split_R;
+    vector< vector<int> > split_cards;
     string owner;
     string handFile;
     int value;

@@ -44,10 +44,6 @@ class Hand:
         self.split_R = []
         self.hit(deck)
         self.hit(deck)
-        if not self.is_dealer:
-            print()
-            print("Your Deal:")
-            self.display_hand()
 
     def set_value(self):
         if not self.hand_split:
@@ -383,17 +379,25 @@ class Hand:
             print("King of Spades")
 
     def payout(self, dealer_hand):
-        print("The final value of your hand is", self.value, end="\n\n")
+        if not self.hand_split:
+            print("The final value of your hand is", self.value, end="\n\n")
         print("The dealer's final hand is:")
+        dealer_hand.is_dealer = False
         dealer_hand.display_hand()
-        dealer_hand.output_cards()
+        dealer_hand.is_dealer = True
         print("Its value is", dealer_hand.value, end="\n\n")
         if self.is_blackjack():
             self.funds += self.current_bet*2
         elif self.hand_split:
             bet_mod = 0
-            if self.is_bust() or self.value_L < dealer_hand.value:
-                print("Your left hand loses! Paying out.")
+            if self.is_bust():
+                print("Your left hand busts! Collecting bets.")
+                bet_mod -= 1
+            elif dealer_hand.is_bust():
+                print("Dealer busts! Paying out.")
+                bet_mod += 1
+            elif self.value_L < dealer_hand.value:
+                print("Your left hand loses! Collecting bets.")
                 bet_mod -= 1
             elif self.value_L == dealer_hand.value:
                 print("Your left hand stands off! You keep your coin.")
@@ -401,8 +405,14 @@ class Hand:
                 print("Your left hand wins! Paying out.")
                 bet_mod += 1
             self.hand_side = "R"
-            if self.is_bust() or self.value_R:
-                print("Your right hand loses! Paying out.")
+            if self.is_bust():
+                print("Your right hand busts! Collecting bets.")
+                bet_mod -= 1
+            elif dealer_hand.is_bust():
+                print("Dealer busts! Paying out.")
+                bet_mod += 1
+            elif self.value_R < dealer_hand.value:
+                print("Your right hand loses! Collecting bets.")
                 bet_mod -= 1
             elif self.value_R == dealer_hand.value:
                 print("Your right hand stands off! You keep your coin.")
@@ -410,6 +420,7 @@ class Hand:
                 print("Your right hand wins! Paying out.")
                 bet_mod += 1
             self.hand_side = "L"
+            self.funds += self.current_bet * bet_mod
         elif self.is_bust():
             self.funds -= self.current_bet
         elif dealer_hand.is_bust():
