@@ -42,6 +42,7 @@ class Hand:
         self.cards = []
         self.split_L = []
         self.split_R = []
+        self.hand_split = False
         self.hit(deck)
         self.hit(deck)
 
@@ -434,4 +435,3 @@ class Hand:
         else:
             print("You lose! Collecting bets.")
             self.funds -= self.current_bet
-        self.hand_split = False
